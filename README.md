@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement delete function in Subscriber repository.`
     -   [x] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -98,5 +98,24 @@ The BambangShop application utilizes multi-threading, which makes DashMap a bett
 In a multi-threaded environment, using DashMap remains the better choice over the Singleton pattern because it provides built-in thread safety without requiring explicit synchronization. While the Singleton pattern ensures a single shared instance, it does not inherently handle concurrent access, meaning we would need to manually implement synchronization using mutexes or read-write locks. This introduces additional complexity, increases the risk of deadlocks, and can lead to performance bottlenecks due to lock contention. On the other hand, DashMap is designed for concurrent access, handling race conditions efficiently while maintaining performance. Rust's strict compiler constraints already enforce thread safety, and leveraging a specialized data structure like DashMap aligns with Rust’s design philosophy by providing a safe, efficient, and maintainable solution without unnecessary manual synchronization.
 
 #### Reflection Publisher-2
+
+## 1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+In the Model-View-Controller (MVC) compound pattern, the "Service" and "Repository" layers are not explicitly defined, as the Model is responsible for both data storage and business logic. However, separating the "Service" and "Repository" from the Model aligns with the Single Responsibility Principle (SRP), ensuring that each class has a distinct concern. By doing so, business logic and data access are decoupled, making the system more maintainable, modular, and scalable. This separation also simplifies testing and debugging, as changes to business logic or data access do not directly impact the Model.
+
+## 2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+If we only use the Model without separating the Service and Repository layers, the code will become increasingly complex and difficult to maintain. The tight coupling between different classes, such as `Program`, `Subscriber`, and `Notification`, will make modifications more challenging. Any changes to one part of the system could lead to a cascade of required changes across multiple components, increasing the risk of errors and making debugging more difficult. By not separating business logic from data access, scalability is also hindered, as the system becomes less flexible and harder to extend in the future.
+
+## 3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+With Postman, I can perform API testing. I can view the results of the requests I send and ensure that the responses I receive match my expectations. One of its supporting features is Collections, which allows requests to be grouped into folders, and Environments, which enables me to store frequently used variables.
+
+
+
+
+
+
+
 
 #### Reflection Publisher-3
